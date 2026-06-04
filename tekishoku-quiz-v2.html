@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>はたらき方診断｜今の仕事、このままでいい？</title>
+<meta property="og:title" content="はたらき方診断｜今の仕事、このままでいい？">
+<meta property="og:description" content="業種関係なし。10問に答えるだけで、あなたに合う働き方がわかる！">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Black+Han+Sans&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{min-height:100vh;background:#111;font-family:'Noto Sans JP',sans-serif;display:flex;align-items:flex-start;justify-content:center;}
+.outer{width:100%;max-width:480px;min-height:100vh;background:#1a1a2e;display:flex;flex-direction:column;}
+.tb{background:#e8a135;padding:18px 20px 14px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+.tt{font-family:'Black Han Sans',sans-serif;font-size:15px;letter-spacing:2px;color:#fff;}
+.pa{display:flex;align-items:center;gap:8px;}
+.pt{font-size:12px;color:rgba(255,255,255,0.85);white-space:nowrap;}
+.pw{width:80px;height:6px;background:rgba(255,255,255,0.3);border-radius:3px;overflow:hidden;}
+.pb{height:100%;background:#fff;border-radius:3px;transition:width 0.4s ease;}
+.sc{display:none;padding:28px 22px 48px;animation:fi 0.35s ease;flex:1;}
+.sc.on{display:block;}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.si{font-size:56px;text-align:center;margin:12px 0 16px;}
+.sh{font-family:'Black Han Sans',sans-serif;font-size:24px;text-align:center;color:#e8a135;line-height:1.3;margin-bottom:10px;}
+.ss{font-size:13px;text-align:center;color:rgba(255,255,255,0.55);margin-bottom:24px;line-height:1.85;}
+.stags{display:flex;justify-content:center;gap:8px;margin-bottom:28px;flex-wrap:wrap;}
+.stag{font-size:12px;padding:5px 14px;border-radius:20px;border:1px solid rgba(232,161,53,0.5);color:#e8a135;}
+.bs{display:block;width:100%;padding:18px;background:#e8a135;border:none;border-radius:14px;font-family:'Black Han Sans',sans-serif;font-size:18px;letter-spacing:2px;color:#fff;cursor:pointer;transition:opacity 0.15s,transform 0.15s;}
+.bs:hover{opacity:0.9;transform:scale(0.99);}
+.bs:active{transform:scale(0.97);}
+
+.qn{font-size:12px;color:#e8a135;letter-spacing:2px;margin-bottom:12px;font-weight:500;}
+.qt{font-size:17px;font-weight:700;line-height:1.65;margin-bottom:6px;color:#fff;}
+.qs{font-size:11px;color:rgba(255,255,255,0.38);margin-bottom:22px;font-style:italic;}
+.opts{display:flex;flex-direction:column;gap:12px;}
+.ob{background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.12);border-radius:14px;padding:16px 18px;color:#fff;font-family:'Noto Sans JP',sans-serif;font-size:14px;text-align:left;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:14px;line-height:1.6;}
+.ob:hover{background:rgba(232,161,53,0.15);border-color:#e8a135;transform:translateX(4px);}
+.ob:active{transform:scale(0.98);}
+.ol{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;border:1px solid rgba(255,255,255,0.2);}
+
+.rh{text-align:center;margin-bottom:20px;}
+.ri{font-size:60px;display:block;margin-bottom:12px;}
+.rbg{display:inline-block;font-size:12px;padding:5px 18px;border-radius:20px;margin-bottom:10px;font-weight:500;}
+.rm{background:rgba(59,130,246,0.2);color:#93c5fd;border:1px solid rgba(59,130,246,0.3);}
+.rc{background:rgba(232,161,53,0.2);color:#fbbf24;border:1px solid rgba(232,161,53,0.3);}
+.rb{background:rgba(34,197,94,0.2);color:#86efac;border:1px solid rgba(34,197,94,0.3);}
+.rtit{font-family:'Black Han Sans',sans-serif;font-size:24px;line-height:1.3;color:#fff;}
+
+.sr{display:flex;gap:12px;margin-bottom:20px;}
+.scard{flex:1;background:rgba(255,255,255,0.05);border-radius:12px;padding:14px 10px;text-align:center;border:1px solid rgba(255,255,255,0.1);}
+.sl{font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:6px;}
+.sv{font-family:'Black Han Sans',sans-serif;font-size:22px;}
+.sv.bl{color:#93c5fd;}.sv.am{color:#fbbf24;}
+.sbw{height:6px;background:rgba(255,255,255,0.1);border-radius:3px;margin-top:8px;overflow:hidden;}
+.sbf{height:100%;border-radius:3px;transition:width 0.8s ease;}
+.fbl{background:#93c5fd;}.fam{background:#fbbf24;}
+
+.rd{font-size:14px;color:rgba(255,255,255,0.78);line-height:1.9;margin-bottom:18px;}
+
+.rvbox{background:rgba(232,161,53,0.08);border:1px solid rgba(232,161,53,0.25);border-radius:12px;padding:16px 18px;margin-bottom:18px;}
+.rvlabel{font-size:10px;color:#e8a135;letter-spacing:2px;margin-bottom:6px;}
+.rvtitle{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;}
+.rvdesc{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.75;}
+
+.vtitle{font-size:11px;color:rgba(255,255,255,0.38);letter-spacing:2px;margin-bottom:10px;}
+.voice{background:rgba(255,255,255,0.04);border-radius:10px;padding:12px 14px;margin-bottom:8px;border-left:2px solid #e8a135;}
+.vname{font-size:10px;color:#e8a135;margin-bottom:4px;}
+.vtext{font-size:12px;color:rgba(255,255,255,0.68);line-height:1.65;}
+
+.trl{font-size:11px;color:rgba(255,255,255,0.38);letter-spacing:2px;margin-bottom:10px;margin-top:18px;}
+.trs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+.tr{font-size:12px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.8);}
+
+.br{display:block;width:100%;padding:16px;background:transparent;border:1.5px solid rgba(255,255,255,0.22);border-radius:14px;font-family:'Noto Sans JP',sans-serif;font-size:14px;color:rgba(255,255,255,0.65);cursor:pointer;transition:all 0.2s;margin-bottom:12px;}
+.br:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
+.sh2{font-size:11px;text-align:center;color:rgba(255,255,255,0.28);}
+</style>
+</head>
+<body>
+<div class="outer">
+  <div class="tb">
+    <span class="tt">🔨 はたらき方診断</span>
+    <div class="pa">
+      <span class="pt" id="pt">0 / 10</span>
+      <div class="pw"><div class="pb" id="pb" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <div class="sc on" id="s-start">
+    <div class="si">🤔</div>
+    <div class="sh">今の仕事、このままでいい？</div>
+    <div class="ss">業種関係なし。10問の「あるある」に答えるだけで<br>あなたに合う働き方がわかります</div>
+    <div class="stags">
+      <span class="stag">全10問</span>
+      <span class="stag">約2分</span>
+      <span class="stag">業種不問</span>
+    </div>
+    <button class="bs" onclick="go()">診断スタート →</button>
+  </div>
+
+  <div class="sc" id="s-quiz">
+    <div class="qn" id="qn">Q1 / 10</div>
+    <div class="qt" id="qt"></div>
+    <div class="qs" id="qs"></div>
+    <div class="opts" id="opts"></div>
+  </div>
+
+  <div class="sc" id="s-result">
+    <div class="rh">
+      <span class="ri" id="ri"></span>
+      <div class="rbg" id="rbg"></div>
+      <div class="rtit" id="rtit"></div>
+    </div>
+    <div class="sr">
+      <div class="scard">
+        <div class="sl">施工管理</div>
+        <div class="sv bl" id="sm">0点</div>
+        <div class="sbw"><div class="sbf fbl" id="bm" style="width:0%"></div></div>
+      </div>
+      <div class="scard">
+        <div class="sl">塗装職人</div>
+        <div class="sv am" id="sc2">0点</div>
+        <div class="sbw"><div class="sbf fam" id="bc" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div class="rd" id="rd"></div>
+    <div class="rvbox">
+      <div class="rvlabel">実はこれって…</div>
+      <div class="rvtitle" id="rv-title"></div>
+      <div class="rvdesc" id="rv-desc"></div>
+    </div>
+    <div class="vtitle">前職からの転職者の声</div>
+    <div id="voices"></div>
+    <div class="trl">あなたの強み</div>
+    <div class="trs" id="trs"></div>
+    <button class="br" onclick="reset()">🔄 もう一度診断する</button>
+    <div class="sh2">📸 スクショしてインスタでシェアしよう！</div>
+  </div>
+</div>
+
+<script>
+const qs=[
+  {t:"友達の引越しを手伝うとき、自分はどっち？",sub:"※ 仕事の話じゃなくてOKです",a:{t:"全体の段取りを仕切って、みんなを動かす",type:"m"},b:{t:"黙々と荷物を梱包・運搬に集中する",type:"c"}},
+  {t:"学校の文化祭、自分はどのポジションだった？",sub:"",a:{t:"実行委員・リーダー・タイムスケジュール管理側",type:"m"},b:{t:"大道具・小道具・舞台装置をつくる側",type:"c"}},
+  {t:"今の仕事でしんどいのはどっちに近い？",sub:"",a:{t:"ずっとデスクで同じことの繰り返し",type:"c"},b:{t:"人間関係・調整・会議が多くて消耗する",type:"m"}},
+  {t:"DIYや料理をするとき、どっちのタイプ？",sub:"",a:{t:"手順を考えながら段取りよく進めたい",type:"m"},b:{t:"細部までこだわってとにかく丁寧に仕上げたい",type:"c"}},
+  {t:"仕事終わりに「今日よかったな」と思える瞬間は？",sub:"",a:{t:"チームで何かをやり遂げたとき",type:"m"},b:{t:"自分がつくったものが目に見える形で残ったとき",type:"c"}},
+  {t:"理想の働き方に近いのは？",sub:"",a:{t:"責任ある仕事を任され、どんどん上を目指したい",type:"m"},b:{t:"技術を磨いて、腕一本で食っていきたい",type:"c"}},
+  {t:"スマホのホーム画面、整理されてる？",sub:"※ 性格を見てるだけです笑",a:{t:"フォルダ分けされてスッキリ整理されてる",type:"m"},b:{t:"アプリが散らばってるけど自分はわかってる",type:"c"}},
+  {t:"新しい仕事を覚えるとき、どっちが好き？",sub:"",a:{t:"全体像・流れを先に把握してから動く",type:"m"},b:{t:"まず手を動かして、体で覚えていく",type:"c"}},
+  {t:"5年後のイメージに近いのは？",sub:"",a:{t:"部下やチームを持って大きな現場を仕切りたい",type:"m"},b:{t:"職人として独立・開業、または一番の技術者でいたい",type:"c"}},
+  {t:"外で体を動かすのは好き？",sub:"",a:{t:"外も好きだけど、頭を使う仕事の方が向いてる",type:"m"},b:{t:"外で体を動かしながら働く方が絶対向いてる",type:"c"}}
+];
+
+const results={
+  m:{icon:"📋",badge:"施工管理タイプ",bc:"rm",title:"あなたは\n「まとめる人」向き",
+    desc:"段取りを組んで全体を動かすのが得意なあなた。それって施工管理そのものです。現場の職人さん・業者・お客さんをつなぐ司令塔として、やりがいをもって働けるタイプです。",
+    rvTitle:"施工管理という仕事",
+    rvDesc:"工事の工程・安全・品質・コストを管理する仕事。未経験でも3〜6ヶ月で現場デビューでき、資格取得でキャリアアップも狙えます。前職：営業・事務・接客からの転職者が多数います。",
+    voices:[{name:"Kさん（元営業・28歳）",text:"「人を動かすのが好きだったので、施工管理はドンピシャでした。給料も上がりました」"},{name:"Mさん（元工場・32歳）",text:"「書類仕事はやってみたら慣れました。現場で達成感があるのが最高です」"}],
+    traits:["段取り力","リーダーシップ","調整・折衝","責任感","全体把握"]},
+  c:{icon:"🖌️",badge:"塗装職人タイプ",bc:"rc",title:"あなたは\n「極める人」向き",
+    desc:"細部へのこだわりと、手で仕上げることへの喜びがあるあなた。黙々と技術を磨く職人の世界がぴったりです。完成した建物に自分の仕事が残る達成感は格別です。",
+    rvTitle:"塗装職人という仕事",
+    rvDesc:"建物の外壁・内装・屋根などを塗装するプロ。未経験OKで、見習い期間から技術を習得できます。独立・開業の道もあり、腕次第でしっかり稼げます。前職：接客・製造・運転からの転職者多数。",
+    voices:[{name:"Tさん（元飲食・25歳）",text:"「立ってるだけより手を動かしてる方が好きで。今は自分の仕上がりが毎日楽しみです」"},{name:"Hさん（元ドライバー・30歳）",text:"「外で体動かしたかったんです。技術がついてくると仕事が面白くなってきました」"}],
+    traits:["職人気質","丁寧さ","集中力","技術追求","こだわり"]},
+  b:{icon:"⚡",badge:"どちらも向いてる",bc:"rb",title:"あなたは\n現場向きの万能タイプ",
+    desc:"リーダー気質と職人気質をどちらも持っているあなた。まずは現場に入って両方を経験してから方向を決めるのが◎。施工管理をやりながら職人技術も学ぶ、最強のキャリアを歩める可能性があります。",
+    rvTitle:"どちらも未経験からスタートできます",
+    rvDesc:"建設業は異業種からの転職者がとても多い業界。まず現場に入ってみると、自分がどちら向きかが自然とわかります。焦らず両方を体験してみましょう。",
+    voices:[{name:"Aさん（元事務・27歳）",text:"「最初は職人から入って、今は施工管理もやってます。どっちも楽しいです」"}],
+    traits:["バランス感覚","現場適応力","多才型","どちらも◎","順応力"]}
+};
+
+let cur=0,sm=0,sc=0;
+
+function go(){
+  document.getElementById('s-start').classList.remove('on');
+  document.getElementById('s-quiz').classList.add('on');
+  show();
+}
+
+function show(){
+  const q=qs[cur];
+  document.getElementById('qn').textContent='Q'+(cur+1)+' / 10';
+  document.getElementById('qt').textContent=q.t;
+  document.getElementById('qs').textContent=q.sub||'';
+  document.getElementById('opts').innerHTML=
+    '<button class="ob" onclick="ans(\'a\')"><span class="ol">A</span><span>'+q.a.t+'</span></button>'+
+    '<button class="ob" onclick="ans(\'b\')"><span class="ol">B</span><span>'+q.b.t+'</span></button>';
+  document.getElementById('pb').style.width=(cur/10*100)+'%';
+  document.getElementById('pt').textContent=cur+' / 10';
+}
+
+function ans(c){
+  var type=qs[cur][c].type;
+  if(type==='m') sm++; else sc++;
+  cur++;
+  if(cur<10){show();}else{showResult();}
+}
+
+function showResult(){
+  document.getElementById('pb').style.width='100%';
+  document.getElementById('pt').textContent='10 / 10';
+  document.getElementById('s-quiz').classList.remove('on');
+  document.getElementById('s-result').classList.add('on');
+  var key=sm>sc+2?'m':sc>sm+2?'c':'b';
+  var r=results[key];
+  document.getElementById('sm').textContent=sm+'点';
+  document.getElementById('sc2').textContent=sc+'点';
+  setTimeout(function(){
+    document.getElementById('bm').style.width=(sm/10*100)+'%';
+    document.getElementById('bc').style.width=(sc/10*100)+'%';
+  },100);
+  document.getElementById('ri').textContent=r.icon;
+  document.getElementById('rbg').textContent=r.badge;
+  document.getElementById('rbg').className='rbg '+r.bc;
+  document.getElementById('rtit').textContent=r.title;
+  document.getElementById('rd').textContent=r.desc;
+  document.getElementById('rv-title').textContent=r.rvTitle;
+  document.getElementById('rv-desc').textContent=r.rvDesc;
+  document.getElementById('voices').innerHTML=r.voices.map(function(v){
+    return '<div class="voice"><div class="vname">'+v.name+'</div><div class="vtext">'+v.text+'</div></div>';
+  }).join('');
+  document.getElementById('trs').innerHTML=r.traits.map(function(t){
+    return '<span class="tr">'+t+'</span>';
+  }).join('');
+}
+
+function reset(){
+  cur=0;sm=0;sc=0;
+  document.getElementById('s-result').classList.remove('on');
+  document.getElementById('s-start').classList.add('on');
+  document.getElementById('pb').style.width='0%';
+  document.getElementById('pt').textContent='0 / 10';
+}
+</script>
+</body>
+</html>

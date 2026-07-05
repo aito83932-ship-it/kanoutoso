@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>はたらき方診断｜今の仕事、このままでいい？</title>
+<meta property="og:title" content="はたらき方診断｜今の仕事、このままでいい？">
+<meta property="og:description" content="業種関係なし。10問に答えるだけで、あなたに合う働き方がわかる！">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Black+Han+Sans&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{min-height:100vh;background:#111;font-family:'Noto Sans JP',sans-serif;display:flex;align-items:flex-start;justify-content:center;}
+.qw{width:100%;max-width:480px;min-height:100vh;background:#1a1a2e;display:flex;flex-direction:column;}
+.tb{background:#e8a135;padding:18px 20px 14px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+.tt{font-family:'Black Han Sans',sans-serif;font-size:15px;letter-spacing:2px;color:#fff;}
+.pa{display:flex;align-items:center;gap:8px;}
+.pt{font-size:12px;color:rgba(255,255,255,0.85);white-space:nowrap;}
+.pw{width:80px;height:6px;background:rgba(255,255,255,0.3);border-radius:3px;overflow:hidden;}
+.pb{height:100%;background:#fff;border-radius:3px;transition:width 0.4s ease;}
+.sc{display:none;padding:28px 22px 48px;animation:fi 0.35s ease;flex:1;}
+.sc.on{display:block;}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.si{text-align:center;margin:10px 0 16px;}
+.sh{font-family:'Black Han Sans',sans-serif;font-size:24px;text-align:center;color:#e8a135;line-height:1.3;margin-bottom:10px;}
+.ss{font-size:13px;text-align:center;color:rgba(255,255,255,0.55);margin-bottom:24px;line-height:1.85;}
+.stags{display:flex;justify-content:center;gap:8px;margin-bottom:28px;flex-wrap:wrap;}
+.stag{font-size:12px;padding:5px 14px;border-radius:20px;border:1px solid rgba(232,161,53,0.5);color:#e8a135;}
+.bs{display:block;width:100%;padding:18px;background:#e8a135;border:none;border-radius:14px;font-family:'Black Han Sans',sans-serif;font-size:18px;letter-spacing:2px;color:#fff;cursor:pointer;transition:opacity 0.15s,transform 0.15s;}
+.bs:hover{opacity:0.9;transform:scale(0.99);}
+.bs:active{transform:scale(0.97);}
+.qn{font-size:12px;color:#e8a135;letter-spacing:2px;margin-bottom:12px;font-weight:500;}
+.qt{font-size:17px;font-weight:700;line-height:1.65;margin-bottom:6px;color:#fff;}
+.qs{font-size:11px;color:rgba(255,255,255,0.35);margin-bottom:22px;font-style:italic;}
+.opts{display:flex;flex-direction:column;gap:12px;}
+.ob{background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.12);border-radius:14px;padding:16px 18px;color:#fff;font-family:'Noto Sans JP',sans-serif;font-size:14px;text-align:left;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:14px;line-height:1.6;}
+.ob:hover{background:rgba(232,161,53,0.15);border-color:#e8a135;transform:translateX(4px);}
+.ob:active{transform:scale(0.98);}
+.ol{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;border:1px solid rgba(255,255,255,0.2);}
+.chara-wrap{text-align:center;margin-bottom:20px;}
+.chara-name{font-family:'Black Han Sans',sans-serif;font-size:28px;color:#e8a135;margin-top:10px;line-height:1.2;}
+.chara-sub{font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;}
+.rbg{display:inline-block;font-size:12px;padding:5px 18px;border-radius:20px;margin-top:8px;font-weight:500;}
+.rm{background:rgba(59,130,246,0.2);color:#93c5fd;border:1px solid rgba(59,130,246,0.3);}
+.rc{background:rgba(232,161,53,0.2);color:#fbbf24;border:1px solid rgba(232,161,53,0.3);}
+.rb{background:rgba(34,197,94,0.2);color:#86efac;border:1px solid rgba(34,197,94,0.3);}
+.rd{font-size:14px;color:rgba(255,255,255,0.78);line-height:1.9;margin-bottom:20px;}
+.strength-box{background:rgba(255,255,255,0.05);border-radius:14px;padding:18px;margin-bottom:18px;border:1px solid rgba(255,255,255,0.1);}
+.strength-title{font-size:11px;color:#e8a135;letter-spacing:2px;margin-bottom:14px;}
+.strength-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;}
+.strength-item:last-child{margin-bottom:0;}
+.strength-icon{width:32px;height:32px;border-radius:10px;background:#e8a135;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.strength-text{flex:1;}
+.strength-label{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px;}
+.strength-desc{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.65;}
+.kano-box{background:linear-gradient(135deg,rgba(232,161,53,0.12),rgba(224,90,28,0.08));border:1px solid rgba(232,161,53,0.3);border-radius:14px;padding:18px;margin-bottom:18px;}
+.kano-label{font-size:10px;color:#e8a135;letter-spacing:2px;margin-bottom:12px;}
+.kano-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.kano-fact{background:rgba(0,0,0,0.2);border-radius:10px;padding:12px 14px;}
+.kano-fact-num{font-family:'Black Han Sans',sans-serif;font-size:20px;color:#e8a135;}
+.kano-fact-label{font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px;line-height:1.4;}
+.dm-box{background:rgba(255,255,255,0.04);border:1.5px dashed rgba(232,161,53,0.4);border-radius:14px;padding:20px;margin-bottom:18px;text-align:center;}
+.dm-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:8px;}
+.dm-desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:14px;}
+.dm-tag{display:inline-block;background:#e8a135;color:#1a1a2e;font-family:'Black Han Sans',sans-serif;font-size:16px;padding:10px 32px;border-radius:10px;letter-spacing:1px;}
+.br{display:block;width:100%;padding:16px;background:transparent;border:1.5px solid rgba(255,255,255,0.22);border-radius:14px;font-family:'Noto Sans JP',sans-serif;font-size:14px;color:rgba(255,255,255,0.65);cursor:pointer;transition:all 0.2s;margin-bottom:12px;}
+.br:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
+.sh2{font-size:11px;text-align:center;color:rgba(255,255,255,0.28);}
+</style>
+</head>
+<body>
+<div class="qw">
+  <div class="tb">
+    <span class="tt">🔨 はたらき方診断</span>
+    <div class="pa">
+      <span class="pt" id="pt">0 / 10</span>
+      <div class="pw"><div class="pb" id="pb" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <div class="sc on" id="s-start">
+    <div class="si">
+      <svg width="90" height="90" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="38" stroke="#e8a135" stroke-width="2"/>
+        <circle cx="30" cy="34" r="4" fill="#e8a135"/>
+        <circle cx="50" cy="34" r="4" fill="#e8a135"/>
+        <path d="M28 52 Q40 62 52 52" stroke="#e8a135" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <path d="M20 20 L16 14 M60 20 L64 14" stroke="#e8a135" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="sh">今の仕事、このままでいい？</div>
+    <div class="ss">業種・経験関係なし。10問の「あるある」に答えるだけで<br>あなたに合う現場の仕事タイプがわかります</div>
+    <div class="stags">
+      <span class="stag">全10問</span>
+      <span class="stag">約2分</span>
+      <span class="stag">業種不問</span>
+    </div>
+    <button class="bs" onclick="go()">診断スタート →</button>
+  </div>
+
+  <div class="sc" id="s-quiz">
+    <div class="qn" id="qn">Q1 / 10</div>
+    <div class="qt" id="qt"></div>
+    <div class="qs" id="qs"></div>
+    <div class="opts" id="opts"></div>
+  </div>
+
+  <div class="sc" id="s-result">
+    <div class="chara-wrap">
+      <div id="chara-svg"></div>
+      <div class="chara-name" id="chara-name"></div>
+      <div class="chara-sub" id="chara-sub"></div>
+      <div class="rbg" id="rbg"></div>
+    </div>
+    <div class="rd" id="rd"></div>
+    <div class="strength-box">
+      <div class="strength-title">あなたが自信を持っていい強み</div>
+      <div id="strengths"></div>
+    </div>
+    <div class="kano-box">
+      <div class="kano-label">有限会社 加納塗装工業</div>
+      <div class="kano-facts">
+        <div class="kano-fact"><div class="kano-fact-num">28年</div><div class="kano-fact-label">創業。地元で積み上げた実績</div></div>
+        <div class="kano-fact"><div class="kano-fact-num">13年+</div><div class="kano-fact-label">従業員平均勤続年数</div></div>
+        <div class="kano-fact"><div class="kano-fact-num">7割</div><div class="kano-fact-label">入社時 未経験スタート</div></div>
+        <div class="kano-fact"><div class="kano-fact-num">0円</div><div class="kano-fact-label">資格取得の費用負担</div></div>
+      </div>
+    </div>
+    <div class="dm-box">
+      <div class="dm-title">気になったら、まず話だけでもOK</div>
+      <div class="dm-desc">インスタDM または コメントに<br>【興味】と送ってください</div>
+      <div class="dm-tag">興味</div>
+    </div>
+    <button class="br" onclick="reset()">🔄 もう一度診断する</button>
+    <div class="sh2">📸 スクショしてシェアしよう！</div>
+  </div>
+</div>
+
+<script>
+var charaM='<svg width="100" height="110" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="32" r="22" fill="#e8a135" stroke="#c8852a" stroke-width="1.5"/><rect x="32" y="20" width="36" height="10" rx="5" fill="#c8852a"/><circle cx="42" cy="30" r="3" fill="#1a1a2e"/><circle cx="58" cy="30" r="3" fill="#1a1a2e"/><path d="M42 40 Q50 47 58 40" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round" fill="none"/><rect x="26" y="56" width="48" height="40" rx="10" fill="#3a6bc4" stroke="#2a5aaa" stroke-width="1.5"/><rect x="38" y="56" width="24" height="15" fill="#2a5aaa"/><line x1="50" y1="56" x2="50" y2="71" stroke="#5a8aee" stroke-width="1.5"/><rect x="30" y="70" width="8" height="26" rx="4" fill="#e8a135" stroke="#c8852a" stroke-width="1"/><rect x="62" y="70" width="8" height="26" rx="4" fill="#e8a135" stroke="#c8852a" stroke-width="1"/><rect x="26" y="90" width="20" height="18" rx="5" fill="#1a1a2e"/><rect x="54" y="90" width="20" height="18" rx="5" fill="#1a1a2e"/><path d="M14 60 L26 68" stroke="#e8a135" stroke-width="6" stroke-linecap="round"/><path d="M86 60 L74 68" stroke="#e8a135" stroke-width="6" stroke-linecap="round"/><circle cx="20" cy="58" r="8" fill="#e8a135" stroke="#c8852a" stroke-width="1.5"/><circle cx="80" cy="58" r="8" fill="#e8a135" stroke="#c8852a" stroke-width="1.5"/><text x="50" y="108" text-anchor="middle" font-size="9" fill="#93c5fd" font-family="Noto Sans JP" font-weight="700">現場監督タイプ</text></svg>';
+
+var charaC='<svg width="100" height="110" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="32" r="22" fill="#f5d28a" stroke="#c8852a" stroke-width="1.5"/><path d="M28 26 Q50 10 72 26" stroke="#c8852a" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="42" cy="30" r="3" fill="#1a1a2e"/><circle cx="58" cy="30" r="3" fill="#1a1a2e"/><path d="M43 40 Q50 46 57 40" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round" fill="none"/><rect x="28" y="56" width="44" height="40" rx="10" fill="#6b8f4a" stroke="#4a6e2a" stroke-width="1.5"/><rect x="40" y="56" width="20" height="12" fill="#4a6e2a"/><line x1="50" y1="56" x2="50" y2="68" stroke="#8ab56a" stroke-width="1.5"/><rect x="32" y="70" width="7" height="26" rx="3.5" fill="#f5d28a" stroke="#c8852a" stroke-width="1"/><rect x="61" y="70" width="7" height="26" rx="3.5" fill="#f5d28a" stroke="#c8852a" stroke-width="1"/><rect x="28" y="90" width="18" height="16" rx="5" fill="#1a1a2e"/><rect x="54" y="90" width="18" height="16" rx="5" fill="#1a1a2e"/><path d="M28 72 L10 80" stroke="#f5d28a" stroke-width="5" stroke-linecap="round"/><rect x="2" y="76" width="14" height="6" rx="3" fill="#e8a135" transform="rotate(-20 9 79)"/><path d="M72 72 L88 65" stroke="#f5d28a" stroke-width="5" stroke-linecap="round"/><rect x="80" y="58" width="16" height="6" rx="3" fill="#4a6e2a" transform="rotate(-30 88 61)"/><text x="50" y="108" text-anchor="middle" font-size="9" fill="#fbbf24" font-family="Noto Sans JP" font-weight="700">塗装職人タイプ</text></svg>';
+
+var charaB='<svg width="100" height="110" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="32" r="22" fill="#a0c8f0" stroke="#5a90c8" stroke-width="1.5"/><circle cx="42" cy="30" r="3.5" fill="#1a1a2e"/><circle cx="58" cy="30" r="3.5" fill="#1a1a2e"/><path d="M41 41 Q50 48 59 41" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M34 22 L28 16 M66 22 L72 16" stroke="#5a90c8" stroke-width="2" stroke-linecap="round"/><rect x="26" y="56" width="48" height="40" rx="10" fill="#7a5acc" stroke="#5a3aaa" stroke-width="1.5"/><rect x="36" y="56" width="28" height="14" fill="#5a3aaa"/><line x1="50" y1="56" x2="50" y2="70" stroke="#a07aee" stroke-width="1.5"/><rect x="30" y="70" width="8" height="26" rx="4" fill="#a0c8f0" stroke="#5a90c8" stroke-width="1"/><rect x="62" y="70" width="8" height="26" rx="4" fill="#a0c8f0" stroke="#5a90c8" stroke-width="1"/><rect x="26" y="90" width="20" height="18" rx="5" fill="#1a1a2e"/><rect x="54" y="90" width="20" height="18" rx="5" fill="#1a1a2e"/><path d="M26 66 L12 72" stroke="#a0c8f0" stroke-width="5" stroke-linecap="round"/><path d="M74 66 L88 60" stroke="#a0c8f0" stroke-width="5" stroke-linecap="round"/><text x="50" y="108" text-anchor="middle" font-size="9" fill="#86efac" font-family="Noto Sans JP" font-weight="700">万能タイプ</text></svg>';
+
+var results={
+  m:{svg:charaM,name:'まとめる人',sub:'現場監督向きタイプ',bc:'rm',
+    desc:'段取りを組んで全体を動かすのが自然にできるタイプ。「誰が何をするか」を整理するのが苦にならない。その力、現場監督としてそのまま活かせます。',
+    strengths:[
+      {icon:'📋',label:'段取り力',desc:'計画を立てて人を動かすのが得意。現場監督の核心スキルです。'},
+      {icon:'💬',label:'調整力',desc:'人と人の間に入って橋渡しするのが向いてる。職人・施主・業者をつなぐ役割にぴったり。'},
+      {icon:'🎯',label:'責任感の強さ',desc:'任された仕事をやり遂げる意識の高さ。チームから信頼される人材になれます。'}
+    ]},
+  c:{svg:charaC,name:'極める人',sub:'塗装職人向きタイプ',bc:'rc',
+    desc:'細かいところまでこだわって、手で仕上げることに喜びを感じるタイプ。その丁寧さは、塗装の世界でそのまま武器になります。',
+    strengths:[
+      {icon:'🖌️',label:'丁寧さ・こだわり',desc:'仕上がりへの意識の高さが、そのまま塗装の品質になる。手を抜けないタイプが向いている仕事。'},
+      {icon:'🔥',label:'集中力',desc:'黙々と一つのことに向き合える力。技術は繰り返しで磨かれる。集中できる人が伸びる世界。'},
+      {icon:'🏆',label:'技術が資産になる',desc:'身につけたスキルは一生もの。将来的に独立・開業の道も開けます。'}
+    ]},
+  b:{svg:charaB,name:'万能タイプ',sub:'どちらも向いてる',bc:'rb',
+    desc:'リーダー気質と職人気質をバランスよく持っているタイプ。どちらに進んでも活躍できる素質があります。',
+    strengths:[
+      {icon:'⚡',label:'バランス感覚',desc:'全体を見ながら手も動かせる。現場では特に重宝される人材。'},
+      {icon:'🔄',label:'順応力',desc:'どんな役割も一定レベルでこなせる。現場が変わっても対応できます。'},
+      {icon:'🌱',label:'伸びしろの大きさ',desc:'両方向に成長できる。経験を積むほど選択肢が広がっていきます。'}
+    ]}
+};
+
+var qs=[
+  {t:"友達の引越しを手伝うとき、自分はどっち？",sub:"※ 仕事の話じゃなくてOKです",a:{t:"全体の段取りを仕切って、みんなを動かす",type:"m"},b:{t:"黙々と荷物を梱包・運搬に集中する",type:"c"}},
+  {t:"学校の文化祭、自分はどのポジションだった？",sub:"",a:{t:"実行委員・リーダー・スケジュール管理側",type:"m"},b:{t:"大道具・小道具・舞台装置をつくる側",type:"c"}},
+  {t:"今の仕事でしんどいのはどっちに近い？",sub:"",a:{t:"ずっとデスクで同じことの繰り返し",type:"c"},b:{t:"人間関係・調整・会議が多くて消耗する",type:"m"}},
+  {t:"DIYや料理をするとき、どっちのタイプ？",sub:"",a:{t:"手順を考えながら段取りよく進めたい",type:"m"},b:{t:"細部までこだわって丁寧に仕上げたい",type:"c"}},
+  {t:"仕事終わりに「今日よかったな」と思えるのは？",sub:"",a:{t:"チームで何かをやり遂げたとき",type:"m"},b:{t:"自分がつくったものが形として残ったとき",type:"c"}},
+  {t:"理想の働き方に近いのは？",sub:"",a:{t:"責任ある仕事を任され、どんどん上を目指したい",type:"m"},b:{t:"技術を磨いて、腕一本で食っていきたい",type:"c"}},
+  {t:"スマホのホーム画面、整理されてる？",sub:"※ 性格を見てるだけです笑",a:{t:"フォルダ分けしてスッキリ整理されてる",type:"m"},b:{t:"散らばってるけど自分はわかってる",type:"c"}},
+  {t:"新しい仕事を覚えるとき、どっちが好き？",sub:"",a:{t:"全体像・流れを先に把握してから動く",type:"m"},b:{t:"まず手を動かして、体で覚えていく",type:"c"}},
+  {t:"5年後のイメージに近いのは？",sub:"",a:{t:"チームを持って大きな現場を仕切りたい",type:"m"},b:{t:"職人として独立か、一番の技術者でいたい",type:"c"}},
+  {t:"外で体を動かすのは好き？",sub:"",a:{t:"外も好きだけど、頭を使う仕事の方が向いてる",type:"m"},b:{t:"外で体を動かしながら働く方が絶対向いてる",type:"c"}}
+];
+
+var cur=0,sm=0,sc=0;
+
+function go(){
+  document.getElementById('s-start').classList.remove('on');
+  document.getElementById('s-quiz').classList.add('on');
+  show();
+}
+
+function show(){
+  var q=qs[cur];
+  document.getElementById('qn').textContent='Q'+(cur+1)+' / 10';
+  document.getElementById('qt').textContent=q.t;
+  document.getElementById('qs').textContent=q.sub||'';
+  document.getElementById('opts').innerHTML=
+    '<button class="ob" onclick="ans(\'a\')"><span class="ol">A</span><span>'+q.a.t+'</span></button>'+
+    '<button class="ob" onclick="ans(\'b\')"><span class="ol">B</span><span>'+q.b.t+'</span></button>';
+  document.getElementById('pb').style.width=(cur/10*100)+'%';
+  document.getElementById('pt').textContent=cur+' / 10';
+}
+
+function ans(c){
+  if(qs[cur][c].type==='m') sm++; else sc++;
+  cur++;
+  if(cur<10){show();}else{showResult();}
+}
+
+function showResult(){
+  document.getElementById('pb').style.width='100%';
+  document.getElementById('pt').textContent='10 / 10';
+  document.getElementById('s-quiz').classList.remove('on');
+  document.getElementById('s-result').classList.add('on');
+  var key=sm>sc+2?'m':sc>sm+2?'c':'b';
+  var r=results[key];
+  document.getElementById('chara-svg').innerHTML=r.svg;
+  document.getElementById('chara-name').textContent=r.name;
+  document.getElementById('chara-sub').textContent=r.sub;
+  document.getElementById('rbg').className='rbg '+r.bc;
+  document.getElementById('rbg').textContent=r.sub;
+  document.getElementById('rd').textContent=r.desc;
+  document.getElementById('strengths').innerHTML=r.strengths.map(function(s){
+    return '<div class="strength-item"><div class="strength-icon">'+s.icon+'</div><div class="strength-text"><div class="strength-label">'+s.label+'</div><div class="strength-desc">'+s.desc+'</div></div></div>';
+  }).join('');
+}
+
+function reset(){
+  cur=0;sm=0;sc=0;
+  document.getElementById('s-result').classList.remove('on');
+  document.getElementById('s-start').classList.add('on');
+  document.getElementById('pb').style.width='0%';
+  document.getElementById('pt').textContent='0 / 10';
+}
+</script>
+</body>
+</html>
